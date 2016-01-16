@@ -15,10 +15,10 @@ fluidPage(
 #server.R
 
 server <- function(input, output) {
-   output$hist=renderPlot({
-    hist(rnorm(input$num),main=input$text)
+  output$hist=renderPlot({
+    hist(rnorm(input$num),main=isolate({input$text}))
   })  
- }
+}
 
 
 
